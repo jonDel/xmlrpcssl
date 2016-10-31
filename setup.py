@@ -11,12 +11,14 @@ setup(
     description='xmlrpc server with basic authentication and secured with ssl',
     classifiers=[
      'Development Status :: 3 - Alpha',
-     'License :: OSI Approved :: MIT License',
+     'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+     'Programming Language :: Python :: 2.6',
      'Programming Language :: Python :: 2.7',
-     'Topic :: Text Processing :: Linguistic',
+     'Topic :: Internet :: WWW/HTTP :: HTTP Servers',
+     'Topic :: System :: Systems Administration :: Authentication/Directory',
     ],
     keywords='ssl secure https xmlrpc rpc xml ldap',
-    long_description=open('README.md').read(),
+    long_description=open('README.rst').read(),
     install_requires=[
     ],
     extras_require={
