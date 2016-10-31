@@ -58,6 +58,12 @@ To install xmlrpcssl, simply run:
 
 xmlrpcssl is compatible with Python 2.6+
 
+Source Code
+-----------
+
+Feel free to fork, evaluate and contribute to this project.
+
+Source: https://github.com/jonDel/xmlrpcssl/
 
 License
 -------
