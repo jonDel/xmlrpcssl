@@ -1,12 +1,12 @@
 xmlrpcssl
 =========
 
-
 **xmlprcssl** is a Python library that provides secure communication (`TLS <https://en.wikipedia.org/wiki/Transport_Layer_Security>`__) beetween clients and servers through xmlrpc protocol. It supports plugable handlers to provide user authentication. For now, it has as an example a ldap based authentication handler.
 
 
 Server configuration
-------------
+--------------------
+
 .. code:: python
 
   >>> from xmlrpcssl import SecureAuthenticatedXMLRPCServer
@@ -35,7 +35,8 @@ Server configuration
 
 
 Client configuration
-------------
+--------------------
+
 .. code:: python
 
   >>> from xmlrpclib import ServerProxy
