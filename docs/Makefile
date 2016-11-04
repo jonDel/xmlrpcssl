@@ -50,9 +50,7 @@ clean:
 
 .PHONY: html
 html:
-	cp ../README.* .
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
-	rm README.*
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
