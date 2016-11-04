@@ -28,8 +28,8 @@ Server configuration
   ...  'host':ldapHost,'RequestHandler':RequestHandler}
   >>> serverSSL = SecureAuthenticatedXMLRPCServer((serverIp,tcpPort),keySsl,crtSsl, **optArgs)
   >>> def test():
-	...  # toy test function
-	...  return datetime.now().strftime("%H:%M:%S")
+  ...  # toy test function
+  ...  return datetime.now().strftime("%H:%M:%S")
   >>> serverSSL.register_function(test)
   >>> serverSSL.serve_forever()
 
@@ -58,6 +58,12 @@ To install xmlrpcssl, simply run:
   $ pip install xmlrpcssl
 
 xmlrpcssl is compatible with Python 2.6+
+
+Documentation
+-------------
+
+http://xmlrpcssl.readthedocs.io/en/latest/
+
 
 Source Code
 -----------
