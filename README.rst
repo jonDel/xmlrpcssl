@@ -22,7 +22,7 @@ Server configuration
   >>> isMasterUser = False # True if the user has write permissions in the ldap server
   >>> baseUsrLoginDn = 'o=Organization,c=US' # user base DN to perform login in the ldap server
   >>> baseSearchDn = 'o=Organization,c=US' # search base DN to perform a search in the ldap server base
-  >>> RequestHandler = LdapVerifyingRequestHandler # a handler that inherits from BaseRequestHandler and perform user authentication
+  >>> RequestHandler = LdapVerifyingRequestHandler # a handler that inherits from BaseRequestHandler and performs user authentication
   >>> optArgs={'isMasterUser':isMasterUser,'baseUsrLoginDn':baseUsrLoginDn,
   ...  'ldapServer':ldapServer,'gidNumber':gidNumber,'baseSearchDn':baseSearchDn,
   ...  'host':ldapHost,'RequestHandler':RequestHandler}
@@ -55,7 +55,7 @@ To install xmlrpcssl, simply run:
 
 ::
 
-  $ pip install xmlrpc
+  $ pip install xmlrpcssl
 
 xmlrpcssl is compatible with Python 2.6+
 

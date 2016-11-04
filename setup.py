@@ -2,12 +2,12 @@ from setuptools import setup
 
 setup(
     name='xmlrpcssl',
-    version='0.1',
+    version='0.1.2',
     author='Jonatan Dellagostin',
     author_email='jdellagostin@gmail.com',
     url='https://github.com/jonDel/xmlrpcssl',
     packages=['xmlrpcssl'],
-    license='LICENSE',
+    license='GPLv3',
     description='xmlrpc server with basic authentication and secured with ssl',
     classifiers=[
      'Development Status :: 3 - Alpha',
