@@ -20,13 +20,16 @@ Server configuration
   >>> ldapServer = 'ldapServer' # ip or name of ldap server
   >>> gidNumber = 111 # User must be in this group in order to be authenticated
   >>> isMasterUser = False # True if the user has write permissions in the ldap server
-  >>> baseUsrLoginDn = 'o=Organization,c=US' # user base DN to perform login in the ldap server
-  >>> baseSearchDn = 'o=Organization,c=US' # search base DN to perform a search in the ldap server base
-  >>> RequestHandler = LdapVerifyingRequestHandler # a handler that inherits from BaseRequestHandler and performs user authentication
+  >>> baseUsrLoginDn = 'o=Organization,c=US' # user base DN to perform login in
+   # the ldap server
+  >>> baseSearchDn = 'o=Organization,c=US' # search base DN to perform a search in
+   # the ldap server base
+  >>> RequestHandler = LdapVerifyingRequestHandler # a handler that inherits from
+   # BaseRequestHandler and performs user authentication
   >>> optArgs={'isMasterUser':isMasterUser,'baseUsrLoginDn':baseUsrLoginDn,
   ...  'ldapServer':ldapServer,'gidNumber':gidNumber,'baseSearchDn':baseSearchDn,
   ...  'host':ldapHost,'RequestHandler':RequestHandler}
-  >>> serverSSL = SecureAuthenticatedXMLRPCServer((serverIp,tcpPort),keySsl,crtSsl, **optArgs)
+  >>> serverSSL=SecureAuthenticatedXMLRPCServer((serverIp,tcpPort),keySsl,crtSsl,**optArgs)
   >>> def test():
   ...  # toy test function
   ...  return datetime.now().strftime("%H:%M:%S")
@@ -44,7 +47,7 @@ Client configuration
   >>> password = 'ldapUserPassword'
   >>> tcpPort=433
   >>> serverIp='10.0.0.1'
-  >>> clientXml = ServerProxy('https://'+userName+':'+password+'@'+serverIp+':'+str(tcpPort))
+  >>> clientXml=ServerProxy('https://'+userName+':'+password+'@'+serverIp+':'+str(tcpPort))
   >>> response = clientXml.test()
   >>> print response
 
@@ -62,10 +65,7 @@ xmlrpcssl is compatible with Python 2.6+
 Documentation
 -------------
 
-https://xmlrpcssl.readthedocs.io/en/latest/
-
-PS: still being developed.
-
+https://xmlrpcssl.readthedocs.io/en/latest/index.html
 
 Source Code
 -----------
@@ -82,5 +82,4 @@ GPLv3 licensed.
 Credits
 -------
 
--  http://code.activestate.com/recipes/496786-simple-xml-rpc-server-over-https and
-   https://github.com/nosmo/python-xmlrpcssl for inspiration
+-  http://code.activestate.com/recipes/496786-simple-xml-rpc-server-over-https and https://github.com/nosmo/python-xmlrpcssl for inspiration
