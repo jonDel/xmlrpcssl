@@ -62,7 +62,9 @@ xmlrpcssl is compatible with Python 2.6+
 Documentation
 -------------
 
-http://xmlrpcssl.readthedocs.io/en/latest/
+https://xmlrpcssl.readthedocs.io/en/latest/
+
+PS: still being developed.
 
 
 Source Code
