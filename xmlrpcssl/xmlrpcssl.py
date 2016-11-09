@@ -1,5 +1,4 @@
 #!/usr/bin/env
-#coding: utf-8
 from base64 import b64decode
 import BaseHTTPServer
 from SimpleXMLRPCServer import SimpleXMLRPCRequestHandler,SimpleXMLRPCDispatcher
@@ -9,7 +8,14 @@ import ssl
 import httplib
 
 class SecureXMLRPCRequestHandler(SimpleXMLRPCRequestHandler):
+	'''Provides a ssl secured handler class for xmlrpc requests
+
+	'''
+
 	def setup(self):
+		'''Perform prior base class initializations
+
+		'''
 		self.connection = self.request
 		self.rfile = socket._fileobject(self.request, "rb", self.rbufsize)
 		self.wfile = socket._fileobject(self.request, "wb", self.wbufsize)
@@ -18,6 +24,9 @@ class SecureXMLRPCRequestHandler(SimpleXMLRPCRequestHandler):
 		SimpleXMLRPCRequestHandler.__init__(self, req, addr, server)
 
 	def do_POST(self):
+		'''Send POST responses with proper xml content
+
+		'''
 		try:
 			data = self.rfile.read(int(self.headers["content-length"]))
 			response = self.server._marshaled_dispatch(
@@ -37,7 +46,13 @@ class SecureXMLRPCRequestHandler(SimpleXMLRPCRequestHandler):
 
 
 class BaseRequestHandler(SecureXMLRPCRequestHandler):
+	'''Base Handler providing methods to handle xmlrpc incoming requests
+
+	'''
 	def parse_request(self):
+		'''Parses incoming requests and perform user authentication
+
+		'''
 		if SimpleXMLRPCRequestHandler.parse_request(self):
 			ret, errorMsg, errorCode = self.authenticate(self.headers)
 			if ret:
@@ -47,6 +62,20 @@ class BaseRequestHandler(SecureXMLRPCRequestHandler):
 		return False
 
 	def authenticate(self, headers):
+		'''Performs user authentication
+
+		Arguments:
+
+			headers (:obj:`str`): http/https headers received from client
+
+		Returns:
+			ret (:obj:`bool`): True if user successfully authenticated, False otherwise
+		Returns:
+			errorMsg (:obj:`str`): Error message if authentication failed, None otherwise
+		Returns:
+			errorCode (:obj:`str`): Error code if authentication failed, None otherwise
+
+		'''
 		auth_header = headers.get('Authorization')
 		if not auth_header:
 			return False, 'No authentication header provided in https request field', httplib.UNAUTHORIZED
@@ -63,13 +92,35 @@ class BaseRequestHandler(SecureXMLRPCRequestHandler):
 			return False, errorMsg, errorCode
 
 	def verifyUserCredentials(self):
-		'''
-		Description: must be overwritten with a proper auth method
+		'''Verify the user credentials
+
+		Returns:
+			ret (:obj:`bool`): True if user successfully authenticated, False otherwise
+		Returns:
+			errorMsg (:obj:`str`): Error message if authentication failed, None otherwise
+		Returns:
+			errorCode (:obj:`str`): Error code if authentication failed, None otherwise
+
+		OBS: Must be overwritten with a proper authentication method in the child class
+
 		'''
 		return False, 'Error: no method provided to verify user credentials', httplib.BAD_REQUEST
 
 
 class SecureAuthenticatedXMLRPCServer(BaseHTTPServer.HTTPServer,SimpleXMLRPCDispatcher):
+	''' Xmlrpc server secured with ssl
+
+	Arguments:
+		server_address(:obj:`str`): ip address of the xmlrpc server
+		keyfile(:obj:`str`): path of the ssl/tls private keyfile generated for the xmlrpc server
+		certfile(:obj:`str`): path of the ssl/tls certificate file signed by the Certification Authority
+	Keyword Arguments:
+		logRequests(:obj:`str`,optional, *default* =True): enable log all requests
+		path(:obj:`str`,optional, *default* ='/'): server http path
+		RequestHandler(:obj:`class`,optional, *default* =BaseRequestHandler): class to handle client requests
+		ssl_version(:obj:`int`, optional, *default* = ssl.PROTOCOL_TLSv1 ): ssl protocol version code 
+
+	'''
 	def __init__(self, server_address, keyfile, certfile,**kwargs):
 		defaultArgs= {
 			'logRequests':True,
@@ -97,5 +148,4 @@ class SecureAuthenticatedXMLRPCServer(BaseHTTPServer.HTTPServer,SimpleXMLRPCDisp
 		)
 		self.server_bind()
 		self.server_activate()
-
 

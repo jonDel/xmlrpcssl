@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='xmlrpcssl',
-    version='0.1.2',
+    version='0.1.3',
     author='Jonatan Dellagostin',
     author_email='jdellagostin@gmail.com',
     url='https://github.com/jonDel/xmlrpcssl',

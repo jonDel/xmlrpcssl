@@ -1,12 +1,29 @@
 #!/usr/bin/env
-#coding: utf-8
 
 import ldap
 import xmlrpcssl
 import httplib
 
 class LdapVerifyingRequestHandler(xmlrpcssl.BaseRequestHandler):
+	'''Ldap handler for xmlrpc client requests
+
+		This Handler class provide methods to handle incoming xmlrpc
+		requests from clients.
+
+	'''
+
 	def verifyUserCredentials(self):
+		''' Verifies user ldap login and permissions
+
+		Performs user authentication, by using the optional class object attributes,
+		(self.optArgs) in a ldap server. The following conditions must be true in order
+		to allow user access:
+			1. User login (self.optArgs['username'] and self.optArgs['password'])
+			2. User must belong to the configured access group(self.optArgs['gidNumber'])
+			3. User must have access to the configured host(self.optArgs['host']), which is
+			   primarily intended to be the host where the xmlrpcssl server is running
+
+		'''
 		if not self.optArgs['username'] or not self.optArgs['password']:
 			return (False, 'Username or password not well formed', httplib.BAD_REQUEST)
 		if self.optArgs['isMasterUser']:

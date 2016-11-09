@@ -1,3 +1,18 @@
+.. image:: https://readthedocs.org/projects/xmlrpcssl/badge/?version=latest
+   :target: http://xmlrpcssl.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+
+.. image:: https://coveralls.io/repos/github/jonDel/xmlrpcssl/badge.svg?branch=master
+   :target: https://coveralls.io/github/jonDel/xmlrpcssl?branch=master
+
+.. image:: https://landscape.io/github/jonDel/xmlrpcssl/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/jonDel/xmlrpcssl/master
+    :alt: Code Health
+
+.. image:: https://www.versioneye.com/user/projects/58233fdf613b6800422cb9b6/badge.svg?style=flat
+    :target: https://www.versioneye.com/user/projects/58233fdf613b6800422cb9b6
+
+
 xmlrpcssl
 =========
 
@@ -65,14 +80,14 @@ xmlrpcssl is compatible with Python 2.6+
 Documentation
 -------------
 
-https://xmlrpcssl.readthedocs.io/en/latest/index.html
+https://xmlrpcssl.readthedocs.io
 
 Source Code
 -----------
 
 Feel free to fork, evaluate and contribute to this project.
 
-Source: https://github.com/jonDel/xmlrpcssl/
+Source: https://github.com/jonDel/xmlrpcssl
 
 License
 -------
