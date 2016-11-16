@@ -1,5 +1,3 @@
-#!/usr/bin/env
-#coding: utf-8
 from xmlrpcssl import SecureAuthenticatedXMLRPCServer
 from xmlrpcssl.handlers import LdapVerifyingRequestHandler
 from datetime import datetime
@@ -10,8 +8,8 @@ optArgs={'isMasterUser':False,'baseUsrLoginDn':'o=FILL,c=FILL','ldapServer':'lda
 
 serverSSL = SecureAuthenticatedXMLRPCServer(("server ip",int("server tcp port")),keySsl,crtSsl, **optArgs)
 def test():
-	# toy test function
-	return datetime.now().strftime("%H:%M:%S")
+    # toy test function
+    return datetime.now().strftime("%H:%M:%S")
 
 serverSSL.register_function(test)
 serverSSL.serve_forever()
