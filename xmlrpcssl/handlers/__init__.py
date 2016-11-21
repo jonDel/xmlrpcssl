@@ -1,1 +1,1 @@
-from ldapHandler import LdapVerifyingRequestHandler
+from .ldap_handler import LdapVerifyingRequestHandler

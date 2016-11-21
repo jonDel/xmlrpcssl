@@ -1,5 +1,5 @@
 from xmlrpclib import ServerProxy
 
-clientXml = ServerProxy('https://USER:PASSWORD@SERVER_XML-RPC_IP:TCP_PORT')
-resp = clientXml.test()
+client_xml = ServerProxy('https://USER:PASSWORD@SERVER_XML-RPC_IP:TCP_PORT')
+resp = client_xml.test()
 print resp
