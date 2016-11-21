@@ -19,10 +19,11 @@ class LdapVerifyingRequestHandler(xmlrpcssl.BaseRequestHandler):
         Performs user authentication, by using the optional class object attributes,
         (self.opt_args) in a ldap server. The following conditions must be true in order
         to allow user access:
-            1. User login (self.opt_args['username'] and self.opt_args['password'])
-            2. User must belong to the configured access group(self.opt_args['gidNumber'])
-            3. User must have access to the configured host(self.opt_args['host']), which is
-               primarily intended to be the host where the xmlrpcssl server is running
+
+        1. User login (self.opt_args['username'] and self.opt_args['password'])
+        2. User must belong to the configured access group(self.opt_args['gidNumber'])
+        3. User must have access to the configured host(self.opt_args['host']), which is \
+        primarily intended to be the host where the xmlrpcssl server is running
 
         '''
         if not self.opt_args['username'] or not self.opt_args['password']:

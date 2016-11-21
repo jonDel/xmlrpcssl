@@ -6,7 +6,7 @@ setup(
     author='Jonatan Dellagostin',
     author_email='jdellagostin@gmail.com',
     url='https://github.com/jonDel/xmlrpcssl',
-    packages=['xmlrpcssl'],
+    packages=['xmlrpcssl','xmlrpcssl/handlers'],
     license='GPLv3',
     description='xmlrpc server with basic authentication and secured with ssl',
     classifiers=[
